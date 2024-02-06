@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Author: Adam Forbush -->
+<!-- Description: Shared Layout -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Adam Forbush</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Mission5Assignment.styles.css" asp-append-version="true" />
+    <link rel="icon" href="~/imgs/icons8-camping-16.ico" type="image/x-icon" />
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <!-- Requirment for Custom icon next to the title on the web page-->
+            <img src="~/imgs/icons8-camping-64.png" style="padding-left: 20px;"/>
+            <div class="container-fluid">
+                <!-- Requirement for the tab of the web page-->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Adam Forbush</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <!-- Navigation to the 2nd View-->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Hobbies">Hobby Calculator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <!-- Footer that includes copyright info and name of the person who built the page-->
+    <footer class="border-top footer text-muted text-center">
+        <div class="container">
+            <!-- Navigation to the 2nd View-->
+            &copy; 2024 - Adam Forbush - <a asp-area="" asp-controller="Home" asp-action="Hobbies">Hobby Calculator</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

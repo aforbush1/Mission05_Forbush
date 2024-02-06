@@ -1,0 +1,44 @@
+﻿<!-- Author: Adam Forbush -->
+<!-- Description: View #2 -->
+
+@{
+    ViewData["Title"] = "Hobby Calculator";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Want to know more?</h1>
+
+    <!-- Container for image and text boxes -->
+    <div class="text-center" id="calculator-container">
+        <h2>Tutoring Cost Calculator</h2>
+        <!-- Enter number of hours box -->
+        <input type="number" id="hours" placeholder="Enter hours needed">
+        <!-- Non-etitable box that shows how much I charge per hour-->
+        <input type="text" id="rate" value="100" readonly>
+        <!-- Button that allows user to calculate the total-->
+        <button id="calculate">Calculate Total</button>
+        <!-- Output box that shows the total -->
+        <p>Total Cost: $<span id="total">0</span></p>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('#calculate').click(function () {
+        var hours = $('#hours').val();
+
+        hours = parseFloat(hours);
+
+        // Validation IF statement
+        if (hours >= 0) {
+            var rate = $('#rate').val();
+            var total = hours * rate;
+            $('#total').text(total.toFixed(2));
+        } else {
+            alert("Enter a positive number for hours please.");
+            $('#hours').val('')
+        }
+    });
+});
+</script>
